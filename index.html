@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SENVORA RESTAURANT – An international five-star culinary destination offering fine Indian, Italian, Chinese, and global gastronomy in an opulent black-and-gold setting.">
+    <meta name="keywords" content="Senvora Restaurant, Luxury Dining, Fine Dining India, Table Reservation, Online Food Order">
+    <title>SENVORA RESTAURANT | Haute Gastronomy & Luxury Dining</title>
+    
+    <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader" aria-hidden="true">
+        <div class="loader-ring"></div>
+        <span class="loader-brand">SENVORA</span>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="brand-logo" aria-label="Senvora Restaurant Home">
+                <span class="logo-crown"><i class="fa-solid fa-crown"></i></span>
+                <div class="logo-text">
+                    <span class="brand-name">SENVORA</span>
+                    <span class="brand-sub">RESTAURANT</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Primary Navigation">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#reservations" class="nav-link">Reservations</a></li>
+                    <li><a href="#menu" class="nav-link" id="nav-order-link">Online Order</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="nav-search-btn" class="icon-btn" aria-label="Search Menu" title="Search Menu">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="cart-toggle-btn" class="icon-btn cart-btn" aria-label="Open Shopping Cart" title="Your Order Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </button>
+                <a href="admin.html" class="admin-link-btn" title="Admin Portal">
+                    <i class="fa-solid fa-user-shield"></i> <span>Admin</span>
+                </a>
+                <button id="hamburger-btn" class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Expandable Quick Search Overlay -->
+        <div id="nav-search-bar" class="nav-search-dropdown">
+            <div class="container search-bar-inner">
+                <i class="fa-solid fa-magnifying-glass gold-text"></i>
+                <input type="text" id="top-search-input" placeholder="Search signature dishes, cuisines, or ingredients..." aria-label="Quick search dishes">
+                <button id="close-search-btn" aria-label="Close Search"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="hero-eyebrow fade-up">ESTABLISHED IN EXCELLENCE • FIVE-STAR GASTRONOMY</p>
+            <h1 class="hero-title fade-up delay-1">SENVORA RESTAURANT</h1>
+            <p class="hero-tagline fade-up delay-2">Where Culinary Artistry Meets Timeless Gold-Standard Luxury</p>
+            <div class="hero-buttons fade-up delay-3">
+                <a href="#menu" class="btn btn-gold">Explore Menu</a>
+                <a href="#reservations" class="btn btn-outline-gold">Book a Table</a>
+                <a href="#about" class="btn btn-ghost">Discover More <i class="fa-solid fa-arrow-down"></i></a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT US SECTION -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">OUR HERITAGE</span>
+                <h2 class="section-title">The Art of Haute Dining</h2>
+                <div class="gold-divider"><span><i class="fa-solid fa-diamond"></i></span></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-images reveal">
+                    <div class="img-frame main-img">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80" alt="Senvora Luxury Dining Room" loading="lazy">
+                    </div>
+                    <div class="img-frame secondary-img">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Executive Chef Plating" loading="lazy">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-num">15+</span>
+                        <span class="exp-text">Years of Culinary Mastery</span>
+                    </div>
+                </div>
+
+                <div class="about-content reveal">
+                    <h3>A Sanctuary for Connoisseurs of Fine Taste</h3>
+                    <p class="lead-text">Founded with a singular vision to redefine luxury hospitality, SENVORA RESTAURANT blends royal Indian heritage with global avant-garde culinary techniques.</p>
+                    
+                    <div class="about-pillars">
+                        <div class="pillar">
+                            <h4><i class="fa-solid fa-book-open gold-text"></i> Our Story & Philosophy</h4>
+                            <p>Every plate at Senvora tells a story of provenance. We partner directly with artisanal farms, coastal fisheries, and heritage spice estates to ensure uncompromised purity and seasonal brilliance.</p>
+                        </div>
+                        <div class="pillar">
+                            <h4><i class="fa-solid fa-utensils gold-text"></i> Executive Chef Vikramaditya Rao</h4>
+                            <p>Trained across Michelin-starred kitchens in Paris, Milan, and Mumbai, Chef Rao orchestrates menus that honour classic flavours while introducing modern theatrical presentation.</p>
+                        </div>
+                        <div class="pillar">
+                            <h4><i class="fa-solid fa-champagne-glasses gold-text"></i> Intimate Opulent Atmosphere</h4>
+                            <p>Draped in obsidian marble, brushed brass, and warm candlelight, our dining salon and private suites provide an unmatched setting for celebrations and executive dining.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-choose-grid">
+                        <div class="why-item"><i class="fa-solid fa-check"></i> Bespoke Sommelier Pairings</div>
+                        <div class="why-item"><i class="fa-solid fa-check"></i> Private Valet & Concierge</div>
+                        <div class="why-item"><i class="fa-solid fa-check"></i> 100% Organic & Single-Origin Spices</div>
+                        <div class="why-item"><i class="fa-solid fa-check"></i> Private Dining Suites</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FOOD MENU & ONLINE ORDER SECTION -->
+    <section id="menu" class="section menu-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">CURATED SELECTIONS</span>
+                <h2 class="section-title">Signature Culinary Menu</h2>
+                <div class="gold-divider"><span><i class="fa-solid fa-diamond"></i></span></div>
+                <p class="section-desc">Explore our gourmet creations across global cuisines. Add dishes to your cart for direct WhatsApp table or doorstep ordering.</p>
+            </div>
+
+            <!-- Menu Controls: Search + Diet Filter + Category Tabs -->
+            <div class="menu-controls reveal">
+                <div class="menu-search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="menu-search-input" placeholder="Search dishes (e.g., Truffle, Biryani, Paneer, Tiramisu)..." aria-label="Search menu items">
+                </div>
+
+                <div class="diet-filter">
+                    <button class="diet-btn active" data-diet="all">All Dishes</button>
+                    <button class="diet-btn" data-diet="veg"><span class="veg-dot"></span> Pure Veg</button>
+                    <button class="diet-btn" data-diet="non-veg"><span class="nonveg-dot"></span> Non-Veg</button>
+                </div>
+            </div>
+
+            <div class="category-tabs reveal" id="category-tabs" role="tablist">
+                <!-- Dynamically populated by script.js -->
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="menu-grid" id="menu-grid">
+                <!-- Dynamically rendered by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TABLE RESERVATION SECTION -->
+    <section id="reservations" class="section reservation-section">
+        <div class="container">
+            <div class="reservation-wrapper reveal">
+                <div class="reservation-info">
+                    <span class="section-subtitle">PRIVATE HOSPITALITY</span>
+                    <h2 class="section-title">Reserve Your Table</h2>
+                    <p>Secure your preferred dining time in our main salon, candlelit terrace, or private royal booth. Instant confirmation provided upon booking.</p>
+                    
+                    <div class="res-highlights">
+                        <div class="res-highlight-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <div>
+                                <h4>Dining Hours</h4>
+                                <p id="res-hours-display">Mon - Sun: 12:00 PM – 11:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="res-highlight-item">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <div>
+                                <h4>Concierge Desk</h4>
+                                <p id="res-phone-display">+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="res-highlight-item">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <div>
+                                <h4>Dress Code</h4>
+                                <p>Smart Elegant / Formal Attire Recommended</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reservation-form-card">
+                    <form id="reservation-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-name">Full Name *</label>
+                                <input type="text" id="res-name" required placeholder="e.g. Aarav Sharma">
+                                <small class="error-msg" id="err-res-name"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-email">Email Address *</label>
+                                <input type="email" id="res-email" required placeholder="e.g. aarav@example.com">
+                                <small class="error-msg" id="err-res-email"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-phone">Phone Number *</label>
+                                <input type="tel" id="res-phone" required placeholder="e.g. +91 9876543210">
+                                <small class="error-msg" id="err-res-phone"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-guests">Number of Guests *</label>
+                                <select id="res-guests" required>
+                                    <option value="">Select Guests</option>
+                                    <option value="1 Guest">1 Guest</option>
+                                    <option value="2 Guests">2 Guests (Couple)</option>
+                                    <option value="3 Guests">3 Guests</option>
+                                    <option value="4 Guests">4 Guests</option>
+                                    <option value="6 Guests">6 Guests</option>
+                                    <option value="8+ Guests (Private Dining)">8+ Guests (Private Dining)</option>
+                                </select>
+                                <small class="error-msg" id="err-res-guests"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-date">Preferred Date *</label>
+                                <input type="date" id="res-date" required>
+                                <small class="error-msg" id="err-res-date"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-time">Preferred Time *</label>
+                                <select id="res-time" required>
+                                    <option value="">Select Time Slot</option>
+                                    <option value="12:30 PM">12:30 PM (Lunch)</option>
+                                    <option value="01:30 PM">01:30 PM (Lunch)</option>
+                                    <option value="02:30 PM">02:30 PM (Lunch)</option>
+                                    <option value="07:00 PM">07:00 PM (Dinner)</option>
+                                    <option value="08:00 PM">08:00 PM (Prime Dinner)</option>
+                                    <option value="09:00 PM">09:00 PM (Prime Dinner)</option>
+                                    <option value="10:00 PM">10:00 PM (Late Supper)</option>
+                                </select>
+                                <small class="error-msg" id="err-res-time"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="res-requests">Special Requests (Optional)</label>
+                            <textarea id="res-requests" rows="3" placeholder="Anniversary celebration, dietary allergies, window seating..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-block">Confirm Reservation</button>
+                    </form>
+
+                    <!-- Confirmation Card -->
+                    <div id="reservation-confirmation" class="confirmation-box hidden">
+                        <i class="fa-solid fa-circle-check gold-text"></i>
+                        <h3>Reservation Confirmed</h3>
+                        <p id="res-confirm-details"></p>
+                        <button type="button" id="new-reservation-btn" class="btn btn-outline-gold btn-sm">Make Another Booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LUXURY GALLERY SECTION -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">VISUAL JOURNEY</span>
+                <h2 class="section-title">The Senvora Experience</h2>
+                <div class="gold-divider"><span><i class="fa-solid fa-diamond"></i></span></div>
+            </div>
+
+            <div class="gallery-filters reveal">
+                <button class="gal-filter-btn active" data-gal="all">All Moments</button>
+                <button class="gal-filter-btn" data-gal="food">Haute Cuisine</button>
+                <button class="gal-filter-btn" data-gal="interior">Grand Interiors</button>
+                <button class="gal-filter-btn" data-gal="dining">Dining & Events</button>
+            </div>
+
+            <div class="gallery-grid reveal" id="gallery-grid">
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Main Gold & Obsidian Dining Hall" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Grand Interiors</span>
+                        <h4>The Obsidian & Gold Salon</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Signature Flame-Grilled Lamb Chops" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Haute Cuisine</span>
+                        <h4>Chargrilled Herb Lamb Rack</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="dining">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Candlelit Private Dinner Setting" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Dining Experience</span>
+                        <h4>Candlelit Tasting Table</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" alt="Royal Saffron Dum Biryani" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Haute Cuisine</span>
+                        <h4>Royal Zafrani Dum Biryani</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="dining">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80" alt="Bespoke Celebration Gala" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Special Events</span>
+                        <h4>Private Gala & Champagne Soirée</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80" alt="24K Gold Leaf Chocolate Fondant" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Haute Cuisine</span>
+                        <h4>24K Gold Valrhona Ganache</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <button id="lightbox-prev" class="lightbox-nav prev" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Gallery Preview">
+            <p id="lightbox-caption"></p>
+        </div>
+        <button id="lightbox-next" class="lightbox-nav next" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- 6. CUSTOMER REVIEWS SECTION -->
+    <section id="reviews" class="section reviews-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">GUEST ACCLAIM</span>
+                <h2 class="section-title">Words From Our Patrons</h2>
+                <div class="gold-divider"><span><i class="fa-solid fa-diamond"></i></span></div>
+            </div>
+
+            <div class="reviews-layout">
+                <div class="reviews-list" id="reviews-list">
+                    <!-- Dynamically rendered by script.js -->
+                </div>
+
+                <div class="review-form-card reveal">
+                    <h3>Share Your Experience</h3>
+                    <p>Dined with us recently? Leave a review for our culinary team.</p>
+                    <form id="review-form" novalidate>
+                        <div class="form-group">
+                            <label for="rev-name">Your Name *</label>
+                            <input type="text" id="rev-name" required placeholder="e.g. Meera Kapoor">
+                            <small class="error-msg" id="err-rev-name"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rating *</label>
+                            <div class="star-rating-input" id="star-rating-input">
+                                <i class="fa-solid fa-star active" data-val="1"></i>
+                                <i class="fa-solid fa-star active" data-val="2"></i>
+                                <i class="fa-solid fa-star active" data-val="3"></i>
+                                <i class="fa-solid fa-star active" data-val="4"></i>
+                                <i class="fa-solid fa-star active" data-val="5"></i>
+                            </div>
+                            <input type="hidden" id="rev-rating" value="5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rev-comment">Your Review *</label>
+                            <textarea id="rev-comment" rows="4" required placeholder="Tell us about the food, ambience, and service..."></textarea>
+                            <small class="error-msg" id="err-rev-comment"></small>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-block">Publish Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT & LOCATION SECTION -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">VISIT US</span>
+                <h2 class="section-title">Location & Concierge</h2>
+                <div class="gold-divider"><span><i class="fa-solid fa-diamond"></i></span></div>
+            </div>
+
+            <div class="contact-grid reveal">
+                <div class="contact-details-card">
+                    <h3>SENVORA RESTAURANT</h3>
+                    <p class="contact-intro">Experience unparalleled luxury in the heart of the city. Valet parking is available at the main porte-cochère.</p>
+
+                    <div class="contact-info-list">
+                        <div class="c-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p id="contact-address">Level 12, The Imperial Crest, MG Road, Bengaluru, Karnataka 560001</p>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4>Reservations & Inquiries</h4>
+                                <p id="contact-phone">+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email Concierge</h4>
+                                <p id="contact-email">concierge@senvorarestaurant.in</p>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <p id="contact-hours">Monday – Sunday: 12:00 PM – 11:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a id="whatsapp-direct-btn" href="https://wa.me/919876543210?text=Hello%20Senvora%20Restaurant%2C%20I%20would%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                        <div class="social-links">
+                            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        title="Senvora Restaurant Location Map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985619587846!2d77.60417831482202!3d12.97277199085513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16773c548eed%3A0x29e86e37758a027c!2sMG%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="brand-logo">
+                    <span class="logo-crown"><i class="fa-solid fa-crown"></i></span>
+                    <div class="logo-text">
+                        <span class="brand-name">SENVORA</span>
+                        <span class="brand-sub">RESTAURANT</span>
+                    </div>
+                </a>
+                <p>An international five-star gastronomic sanctuary celebrating fine global cuisines, bespoke service, and timeless elegance.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Culinary Menu</a></li>
+                    <li><a href="#reservations">Table Reservations</a></li>
+                    <li><a href="#gallery">Visual Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Guest Services</h4>
+                <ul>
+                    <li><a href="#menu">Online Ordering</a></li>
+                    <li><a href="#reviews">Guest Reviews</a></li>
+                    <li><a href="#contact">Contact & Map</a></li>
+                    <li><a href="admin.html">Management Portal</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2026 SENVORA RESTAURANT. All Rights Reserved.</p>
+                <p>Designed for Luxury Hospitality Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT SHOPPING CART & CHECKOUT DRAWER -->
+    <div id="cart-backdrop" class="cart-backdrop"></div>
+    <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping gold-text"></i> Your Gourmet Order</h3>
+            <button id="close-cart-btn" class="close-drawer-btn" aria-label="Close Cart">&times;</button>
+        </div>
+
+        <div id="cart-items-container" class="cart-items">
+            <!-- Cart items rendered dynamically -->
+        </div>
+
+        <div id="cart-footer" class="cart-footer hidden">
+            <div class="cart-totals">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">₹0</span>
+                </div>
+                <div class="total-row">
+                    <span>GST & Packaging (5%)</span>
+                    <span id="cart-tax">₹0</span>
+                </div>
+                <div class="total-row grand-total">
+                    <span>Total Payable</span>
+                    <span id="cart-total">₹0</span>
+                </div>
+            </div>
+
+            <!-- Checkout Form -->
+            <form id="checkout-form" class="checkout-form" novalidate>
+                <h4>Delivery / Table Details</h4>
+                <div class="form-group">
+                    <input type="text" id="cust-name" placeholder="Full Name *" required>
+                    <small class="error-msg" id="err-cust-name"></small>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="cust-phone" placeholder="Phone Number *" required>
+                    <small class="error-msg" id="err-cust-phone"></small>
+                </div>
+                <div class="form-group">
+                    <textarea id="cust-address" rows="2" placeholder="Delivery Address or Table Number *" required></textarea>
+                    <small class="error-msg" id="err-cust-address"></small>
+                </div>
+                
+                <p class="payment-disclaimer">
+                    <i class="fa-solid fa-circle-info"></i> Online payment gateway is disabled in demo mode. Confirm your order via WhatsApp or Pay on Delivery/Table.
+                </p>
+
+                <button type="submit" class="btn btn-gold btn-block">
+                    <i class="fa-solid fa-check"></i> Place Order
+                </button>
+                <button type="button" id="whatsapp-order-btn" class="btn btn-whatsapp btn-block">
+                    <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- Scroll To Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top" title="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Main Application Script -->
+    <script src="script.js"></script>
+</body>
+</html>"

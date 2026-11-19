@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENVORA RESTAURANT | Executive Admin Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Security Notice Banner -->
+    <div class="security-banner">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span><strong>Demo Architecture Notice:</strong> This prototype persists data and login sessions using browser <code>localStorage</code>. For live production deployment, replace client-side authentication with server-side JWT/OAuth sessions and a secure database (PostgreSQL/MongoDB).</span>
+    </div>
+
+    <!-- LOGIN SCREEN -->
+    <section id="admin-login-screen" class="login-screen">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-crown gold-text"></i>
+                <h1>SENVORA</h1>
+                <p>EXECUTIVE MANAGEMENT PORTAL</p>
+            </div>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Admin Username</label>
+                    <input type="text" id="admin-username" value="admin" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Security Passcode</label>
+                    <input type="password" id="admin-password" placeholder="Enter passcode (senvora2026)" required>
+                </div>
+                <p id="login-error" class="error-text"></p>
+                <button type="submit" class="btn btn-gold btn-block">Access Dashboard</button>
+            </form>
+            <div class="login-footer">
+                <p class="demo-creds">Demo Credentials: <strong>admin</strong> / <strong>senvora2026</strong></p>
+                <a href="index.html" class="back-site-link"><i class="fa-solid fa-arrow-left"></i> Return to Restaurant Website</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN DASHBOARD SHELL -->
+    <div id="admin-dashboard" class="dashboard-layout hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-crown gold-text"></i>
+                <div>
+                    <h2>SENVORA</h2>
+                    <span>ADMIN SUITE</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="side-btn active" data-tab="tab-menu"><i class="fa-solid fa-utensils"></i> Menu & Dishes</button>
+                <button class="side-btn" data-tab="tab-categories"><i class="fa-solid fa-layer-group"></i> Categories</button>
+                <button class="side-btn" data-tab="tab-orders"><i class="fa-solid fa-bag-shopping"></i> Online Orders <span id="badge-orders" class="nav-pill">0</span></button>
+                <button class="side-btn" data-tab="tab-reservations"><i class="fa-solid fa-calendar-check"></i> Reservations <span id="badge-res" class="nav-pill">0</span></button>
+                <button class="side-btn" data-tab="tab-reviews"><i class="fa-solid fa-star"></i> Guest Reviews</button>
+                <button class="side-btn" data-tab="tab-settings"><i class="fa-solid fa-gear"></i> Restaurant Info</button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" target="_blank" class="btn btn-outline-gold btn-sm btn-block"><i class="fa-solid fa-eye"></i> View Live Site</a>
+                <button id="admin-logout-btn" class="btn btn-danger btn-sm btn-block"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-panel">
+            <!-- Top KPI Bar -->
+            <header class="panel-header">
+                <div>
+                    <h1 id="panel-title">Menu & Dish Management</h1>
+                    <p class="muted">Changes automatically synchronize with the live customer website.</p>
+                </div>
+                <div class="kpi-strip">
+                    <div class="kpi-box">
+                        <span id="kpi-dishes">0</span>
+                        <label>Dishes</label>
+                    </div>
+                    <div class="kpi-box">
+                        <span id="kpi-orders">0</span>
+                        <label>Orders</label>
+                    </div>
+                    <div class="kpi-box">
+                        <span id="kpi-reservations">0</span>
+                        <label>Bookings</label>
+                    </div>
+                </div>
+            </header>
+
+            <!-- TAB 1: MENU MANAGEMENT -->
+            <section id="tab-menu" class="tab-content active">
+                <div class="admin-card">
+                    <h3 id="dish-form-title">Add New Signature Dish</h3>
+                    <form id="dish-form" class="dish-form-grid">
+                        <input type="hidden" id="edit-dish-id">
+                        <div class="form-group">
+                            <label>Dish Name *</label>
+                            <input type="text" id="dish-name" required placeholder="e.g. Royal Saffron Lobster">
+                        </div>
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="dish-category" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (INR ₹) *</label>
+                            <input type="number" id="dish-price" required min="1" placeholder="e.g. 1250">
+                        </div>
+                        <div class="form-group">
+                            <label>Dietary Type *</label>
+                            <select id="dish-diet" required>
+                                <option value="veg">Pure Vegetarian</option>
+                                <option value="non-veg">Non-Vegetarian</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Availability Status *</label>
+                            <select id="dish-available" required>
+                                <option value="true">Available</option>
+                                <option value="false">Sold Out / Unavailable</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL *</label>
+                            <input type="url" id="dish-image" required placeholder="https://images.unsplash.com/...">
+                        </div>
+                        <div class="form-group full-span">
+                            <label>Culinary Description *</label>
+                            <textarea id="dish-desc" rows="2" required placeholder="Ingredients, preparation technique, and plating notes..."></textarea>
+                        </div>
+                        <div class="form-actions full-span">
+                            <button type="submit" id="save-dish-btn" class="btn btn-gold"><i class="fa-solid fa-plus"></i> Save Dish to Menu</button>
+                            <button type="button" id="cancel-edit-btn" class="btn btn-outline-gold hidden">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <div class="card-header-flex">
+                        <h3>Current Menu Catalogue</h3>
+                        <button id="reset-demo-menu-btn" class="btn btn-outline-gold btn-sm">Restore Default Menu</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Dish Details</th>
+                                    <th>Category</th>
+                                    <th>Price (INR)</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-menu-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: CATEGORY MANAGEMENT -->
+            <section id="tab-categories" class="tab-content">
+                <div class="admin-card">
+                    <h3>Manage Menu Categories</h3>
+                    <form id="category-form" class="inline-form">
+                        <input type="text" id="new-category-name" placeholder="New Category Name (e.g. Chef's Tasting Menu)" required>
+                        <button type="submit" class="btn btn-gold">Add Category</button>
+                    </form>
+                    <ul id="admin-category-list" class="category-pill-list"></ul>
+                </div>
+            </section>
+
+            <!-- TAB 3: ONLINE ORDERS -->
+            <section id="tab-orders" class="tab-content">
+                <div class="admin-card">
+                    <div class="card-header-flex">
+                        <h3>Customer Online & WhatsApp Orders</h3>
+                        <button id="clear-orders-btn" class="btn btn-danger btn-sm">Clear Order History</button>
+                    </div>
+                    <div id="admin-orders-list" class="records-grid"></div>
+                </div>
+            </section>
+
+            <!-- TAB 4: TABLE RESERVATIONS -->
+            <section id="tab-reservations" class="tab-content">
+                <div class="admin-card">
+                    <div class="card-header-flex">
+                        <h3>Table Reservations</h3>
+                        <button id="clear-res-btn" class="btn btn-danger btn-sm">Clear Reservations</button>
+                    </div>
+                    <div id="admin-res-list" class="records-grid"></div>
+                </div>
+            </section>
+
+            <!-- TAB 5: CUSTOMER REVIEWS -->
+            <section id="tab-reviews" class="tab-content">
+                <div class="admin-card">
+                    <h3>Moderate Guest Reviews</h3>
+                    <div id="admin-reviews-list" class="records-grid"></div>
+                </div>
+            </section>
+
+            <!-- TAB 6: RESTAURANT CONTACT & HOURS SETTINGS -->
+            <section id="tab-settings" class="tab-content">
+                <div class="admin-card">
+                    <h3>Restaurant Contact Information & Operating Hours</h3>
+                    <form id="settings-form" class="dish-form-grid">
+                        <div class="form-group">
+                            <label>WhatsApp Ordering Number (with Country Code, no +)</label>
+                            <input type="text" id="set-whatsapp" required placeholder="919876543210">
+                        </div>
+                        <div class="form-group">
+                            <label>Public Concierge Phone</label>
+                            <input type="text" id="set-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Official Email Address</label>
+                            <input type="email" id="set-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Opening Hours</label>
+                            <input type="text" id="set-hours" required>
+                        </div>
+                        <div class="form-group full-span">
+                            <label>Full Restaurant Address</label>
+                            <input type="text" id="set-address" required>
+                        </div>
+                        <div class="full-span">
+                            <button type="submit" class="btn btn-gold"><i class="fa-solid fa-floppy-disk"></i> Update Restaurant Details</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="admin-toast" class="admin-toast"></div>
+    <script src="admin.js"></script>
+</body>
+</html>
